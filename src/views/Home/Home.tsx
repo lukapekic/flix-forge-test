@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getMoviesSelector, getMovies } from "../../shared/store/modules";
 import { MovieLane } from "../../components";
 import { Main } from "../../layout";
+import style from "./Home.module.css";
 
 export const Home: FunctionComponent = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ export const Home: FunctionComponent = () => {
   }, []);
 
   return (
-    <Main>
+    <Main className={style["homepage"]}>
       {Object.entries(movies).map((categories) => {
         //@ts-ignore
         return <MovieLane category={categories[0]} movies={categories[1]} />;

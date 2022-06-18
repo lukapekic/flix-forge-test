@@ -11,9 +11,11 @@ export const Main: FunctionComponent<MainLaytouProps> = ({
   ...rest
 }) => {
   return (
-    <div className={classNames(style["layout"], className)} {...rest}>
+    <div className={style["layout"]} {...rest}>
       <Header className={style["layout__header"]} />
-      <main className={style["layout__main"]}>{children}</main>
+      <main className={classNames(style["layout__main"], className)}>
+        {children}
+      </main>
     </div>
   );
 };
