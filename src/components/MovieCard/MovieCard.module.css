@@ -1,7 +1,4 @@
 .moviecard {
-    width: 100%;
-    height: 100%;
-
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -9,7 +6,14 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    align-items: center;
+    align-items: flex-start;
+
+    flex-grow: 0;
+    padding: 1rem;
+    cursor: pointer;
+
+    border-radius: 0.25rem;
+    box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.1);
 }
 
 .moviecard__title {
@@ -19,7 +23,14 @@
 }
 
 .moviecard__rating {
-    font-size: 0.75rem;
-    font-weight: 400;
+    font-size: 1.75rem;
+    font-weight: 700;
     color: rgb(225, 142, 27);
+}
+
+.moviecard__info-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

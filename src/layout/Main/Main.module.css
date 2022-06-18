@@ -1,0 +1,20 @@
+.layout {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 5rem auto 5rem;
+}
+
+.layout__main {
+    grid-column: 4 / span 6;
+    grid-row: 2;
+}
+
+.layout__header {
+    grid-column: 1 / -1;
+    grid-row: 1;
+}
+
+.layout__footer {
+    grid-column: 1 / -1;
+    grid-row: 3;
+}

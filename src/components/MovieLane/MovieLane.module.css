@@ -1,0 +1,25 @@
+.movielane {
+    margin-bottom: 5rem;
+}
+
+.moveilane__movies-wrapper {
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow-x: auto;
+}
+
+.moveilane__movie-card {
+    width: 25rem;
+    height: 10rem;
+    flex-shrink: 0;
+}
+
+.movielane__title {
+    font-size: 1.5rem;
+    color: #fff;
+
+    margin-bottom: 2rem;
+}

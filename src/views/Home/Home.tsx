@@ -1,15 +1,12 @@
-import { FunctionComponent, useCallback, useEffect } from "react";
+import { FunctionComponent, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { getMoviesSelector, getMovies } from "../../shared/store/modules";
-import { MovieCard } from "../../components";
+import { MovieLane } from "../../components";
+import { Main } from "../../layout";
 
 export const Home: FunctionComponent = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const movies = useSelector(getMoviesSelector) || [];
-
-  console.log(Object.entries(movies));
 
   useEffect(() => {
     //@ts-ignore
@@ -19,24 +16,12 @@ export const Home: FunctionComponent = () => {
     };
   }, []);
 
-  const handleMovieCardClick = useCallback(
-    (movieId: string) => navigate(`/movie/${movieId}`),
-    []
-  );
-
   return (
-    <div>
-      {/* {movies.map((movie) => {
-        return (
-          <MovieCard
-            key={movie.id}
-            coverImage={movie.backdrop}
-            title={movie.title}
-            rating={movie.imdb_rating}
-            onClick={() => handleMovieCardClick(movie.id)}
-          />
-        );
-      })} */}
-    </div>
+    <Main>
+      {Object.entries(movies).map((categories) => {
+        //@ts-ignore
+        return <MovieLane category={categories[0]} movies={categories[1]} />;
+      })}
+    </Main>
   );
 };
