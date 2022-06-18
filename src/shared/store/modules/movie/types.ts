@@ -1,22 +1,5 @@
-export interface Action {
-  type: string;
-  payload: any;
-}
+import { Movie } from "../types";
 
-export interface Movie {
-  realased_on: Date;
-  cast: string[];
-  backdrop: string;
-  director: string;
-  overview: string;
-  length: string;
-  genres: string;
-  slug: string;
-  title: string;
-  classification: string;
-  id: string;
-  imdb_rating: number;
-  poster: string;
-}
-
-export type MovieModuleState = Movie[];
+export type MovieModuleState = {
+  movies: Movie[];
+};

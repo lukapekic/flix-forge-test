@@ -1,14 +1,23 @@
-import { GET_MOVIES, SEARCH_MOVIES } from "./actionTypes";
+import type { Dispatch } from "redux";
+import { Movie } from "../types";
+import { SET_MOVIES } from "./actionTypes";
+import { fetchMovies } from "./api";
 
-export const getMovies = () => {
+const setMovies = (movies: Movie[]) => {
   return {
-    type: GET_MOVIES,
+    type: SET_MOVIES,
+    payload: movies,
   };
 };
 
-export const searchMovies = (searchCriteria: string) => {
-  return {
-    type: SEARCH_MOVIES,
-    payload: searchCriteria,
+export const getMovies = () => {
+  return async (dispatch: Dispatch) => {
+    try {
+      const { data } = await fetchMovies();
+      dispatch(setMovies(data.movies));
+    } catch (error) {
+      console.error(error);
+      dispatch(setMovies([]));
+    }
   };
 };
